@@ -1,0 +1,31 @@
+
+<div style="width:90%" class="row score-panel">
+    <div class="small-12 columns score-heading">
+      Top 10: {{ period }}
+    </div>
+    <table class="small-12 columns  score-table">
+      <thead>
+        <tr>
+          <th style= "text-align: right">#</th>
+          <th>name</th>
+          <th style= "text-align: right">score</th>
+          <th style= "text-align: right">games</th>
+          <th style= "text-align: right">won</th>
+          <th style= "text-align: right">lost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-ng-repeat="line in top10">
+          <td style= "text-align: right">{{line.rank}}</td>
+          <td>{{line.name}}</td>
+          <td style= "text-align: right">{{line.score}}</td>
+          <td style= "text-align: right">{{line.played}}</td>
+          <td style= "text-align: right">{{line.won}}</td>
+          <td style= "text-align: right">{{line.lost}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="small-12 columns score-heading">
+      login @ wuzzler.technikum-wien.at
+    </div>
+</div>

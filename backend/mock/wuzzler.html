@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <title>Wutzler-mock</title>
+</head>
+
+<body>
+
+    <div>led_blue:<span id="led_blue">null</span></div>
+    <div>led_red:<span id="led_red">null</span></div>
+
+    <button onclick="socket.emit('btn_red');">btn_red</button>
+    <button onclick="socket.emit('btn_blue');">btn_blue</button>
+    <button onclick="socket.emit('goal_red');">goal_red</button>
+    <button onclick="socket.emit('goal_blue');">goal_blue</button>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+
+        var socket = io();
+        socket.on('update', function(upd){
+            document.getElementById('led_red').innerHTML = upd.led_red;
+            document.getElementById('led_blue').innerHTML = upd.led_blue;
+        });
+
+    </script>
+</body>
+
+</html>

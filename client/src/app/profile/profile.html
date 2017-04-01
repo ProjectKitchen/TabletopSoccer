@@ -1,0 +1,62 @@
+<div class="off-canvas-wrap">
+  <div class="inner-wrap" style="min-height: 100vh";>
+    <nav class="tab-bar">
+      <section class="left-small">
+        <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+      </section>
+
+      <section class="middle tab-bar-section">
+        <h1 class="title">Profile</h1>
+      </section>
+    </nav>
+
+    <aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        <li><label>Menu</label></li>
+        <li><a href="#/profile">profile</a></li>
+        <li><a href="#/challenge">start Game</a></li>
+        <li><a href="#/login">logout</a></li>
+      </ul>
+    </aside>
+      <section class="main-section">
+        <div class="small-12 columns" style="position:relative; margin-top:20px;">
+          <h1>User: {{data.user.name}}</h1>
+        </div>
+        <accordion close-others="true" style="margin-top: 10px;">
+          <accordion-group style="
+              border: 1px solid black;
+              margin-top: -1px;"
+            heading="{{period.label}}" is-open="period.label=='all'"
+            data-ng-repeat="period in stats"
+          >
+            <table class="profile-table" style="width:100%">
+              <tr>
+                <td>score:</td>
+                <td>{{period.score}}</td>
+              </tr>
+              <tr>
+                <td>rank:</td>
+                <td>{{period.rank}}</td>
+              </tr>
+              <tr>
+                <td>games played:</td>
+                <td>{{period.played}}</td>
+              </tr>
+              <tr>
+                <td>games won:</td>
+                <td>{{period.won}}</td>
+              </tr>
+              <tr>
+                <td>games lost:</td>
+                <td>{{period.lost}}</td>
+              </tr>
+            </table>
+          </accordion-group>
+        </accordion>
+
+        <a class="exit-off-canvas"></a>
+      </div>
+
+      </section>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="small-12 large-text-center columns"
+    style="position:relative; margin-top:20px;">
+        <h1>Please Login</h1>
+        <label>Username
+            <input
+              type="text"
+              placeholder="Username"
+              ng-model="username"
+            />
+        </label>
+        <label>Password
+            <input
+              type="password"
+              placeholder="Password"
+              ng-model="passwd"
+            />
+        </label>
+      </div>
+    </div>
+    <div class="login-message small-12 large-text-center columns">
+      {{message}}
+    </div>
+    <div class="small-12 large-text-center columns",
+      style="position:absolute; bottom:0;">
+      <p><a
+        class="button expand"
+        ng-click="login()"
+      >Login</a></p>
+      <p><a
+        class="button expand"
+        ng-click="register()"
+      >Register</a></p>
+    </div>
+  </div>
+</div>

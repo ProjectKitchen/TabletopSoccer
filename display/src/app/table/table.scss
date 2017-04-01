@@ -1,0 +1,28 @@
+
+.score-panel{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 3vw;
+  text-align: center;
+  transform: translate3d(-50%,-50%,0);
+  color: white;
+  th,td{
+    padding: 1.4vw;
+    font-size: 3vw;
+  }
+}
+
+.score-heading{
+  color: white;
+  background-color:rgba(0,0,0,0.9);
+}
+
+.score-table{
+  border: none;
+  width:100%;
+  th,td{
+    padding: 1.2vw;
+    font-size: 3vw;
+  }
+}

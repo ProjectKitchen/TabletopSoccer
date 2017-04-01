@@ -1,0 +1,64 @@
+<div class="off-canvas-wrap">
+  <div class="inner-wrap" style="min-height: 100vh";>
+    <nav class="tab-bar">
+      <section class="left-small">
+        <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+      </section>
+
+      <section class="middle tab-bar-section">
+        <h1 class="title">Start Game</h1>
+      </section>
+    </nav>
+
+    <aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        <li><label>Menu</label></li>
+        <li><a href="#/profile">profile</a></li>
+        <li><a href="#/challenge">start Game</a></li>
+        <li><a href="#/login">logout</a></li>
+      </ul>
+    </aside>
+      <section class="main-section">
+
+        <label style="background: grey;">&nbsp;Upcoming Games (tap to cancel):</label>
+        <a ng-click="data.server.cancelGame(x)"
+          data-ng-repeat="x in data.state.waitingGames"
+          class="small-12 columns list-item"
+        >{{ x.blue }} vs. {{ x.red }}</a>
+        <div ng-show="data.state.waitingGames.length===0"
+          class="small-12 columns list-item"
+        >no upcoming Games</div>
+
+        <label style="background: grey;">&nbsp;Challenged (tap to cancel):</label>
+        <a ng-click="data.server.cancelChallenge(x)"
+          data-ng-repeat="x in data.state.challenges.to"
+          class="small-12 columns list-item"
+        >{{ x }}</a>
+        <div ng-show="data.state.challenges.to.length===0"
+          class="small-12 columns list-item"
+        >no players challenged</div>
+
+        <label style="background: grey;">&nbsp;Challenged by (tap to accept):</label>
+        <a ng-click="data.server.acceptChallenge(x)"
+          data-ng-repeat="x in data.state.challenges.by"
+          class="small-12 columns list-item"
+        >{{ x }}</a>
+        <div ng-show="data.state.challenges.by.length===0"
+          class="small-12 columns list-item"
+        >no challenges</div>
+
+        <label style="background: grey;">&nbsp;Available Players (tap to challenge)</label>
+        <a ng-click="data.server.challenge(x)"
+          data-ng-repeat="x in data.state.challenges.available"
+          class="small-12 columns list-item"
+        >{{ x }}</a>
+        <div ng-show="data.state.challenges.available.length===0"
+          class="small-12 columns list-item"
+        >no players available</div>
+
+        <a class="exit-off-canvas"></a>
+      </div>
+
+      </section>
+    </div>
+</div>

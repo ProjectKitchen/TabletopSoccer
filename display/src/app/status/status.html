@@ -1,0 +1,87 @@
+<div id="mainrow">
+  <div class="row">
+    <div class="message-side small-2 text-center columns">
+      <div class="center-vertical"
+        ng-show="data.state.game.blue_ready===false"
+      >
+        press button to start
+      </div>
+      <div class="center-vertical"
+        ng-hide="data.state.game.blue_ready===false"
+      ></div>
+    </div>
+    <div class="small-6 small-offset-1 text-center columns">
+      <div class="row">
+        <div class="row">
+          <div class="score small-5 columns text-center">
+            <div class="row">
+              <div class="score small-6 columns text-center">
+                {{data.state.game.blue.toString().split('').reverse()[1]||'0'}}
+              </div>
+              <div class="score small-6 columns text-center">
+                {{data.state.game.blue.toString().split('').reverse()[0]||'0';}}
+              </div>
+            </div>
+          </div>
+          <div class="score small-2 columns text-center">:</div>
+          <div class="score small-5 columns text-center">
+            <div class="row">
+              <div class="score small-6 columns text-center">
+                {{data.state.game.red.toString().split('').reverse()[1]||'0'}}
+              </div>
+              <div class="score small-6 columns text-center">
+                {{data.state.game.red.toString().split('').reverse()[0]||'0'}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div id="name-blue" class="name small-5 columns">
+          {{data.state.game.blue_name||'blue';}}
+        </div>
+        <div id="name-red"class="name small-offset-2 small-5 columns">
+          {{data.state.game.red_name||'red';}}
+        </div>
+      </div>
+    </div>
+    <div class="message-side small-2 text-center columns">
+      <div class="center-vertical"
+        ng-show="data.state.game.red_ready===false"
+      >
+        press button to start
+      </div>
+      <div class="center-vertical"
+        ng-hide="data.state.game.red_ready===false"
+      ></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="message-lower columns text-center">
+      <div class="center-vertical"
+        ng-show="data.state.game.state==='finished'"
+      >GameOver</div>
+      <div class="center-vertical"
+        ng-show="data.state.game.state==='started'"
+      >Have Fun </div>
+      <div class="center-vertical"
+        ng-show="data.state.game.state==='waiting'"
+      >waiting for Players</div>
+      <div class="center-vertical"
+        ng-show="data.state.game.state==='none'"
+      >press any button</div>
+      <div class="center-vertical"
+        ng-show="data.state.game.state==='goal_red'"
+      >press red to revoke</div>
+      <div class="center-vertical"
+        ng-show="data.state.game.state==='goal_blue'"
+      >press blue to revoke</div>
+      <div class="center-vertical"
+        ng-show="data.state.game.state==='abort_blue'"
+      >press blue to abort game</div>
+      <div class="center-vertical"
+        ng-show="data.state.game.state==='abort_red'"
+      >press red to abort game</div>
+    </div>
+  </div>
+</div>

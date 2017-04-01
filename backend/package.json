@@ -1,0 +1,23 @@
+{
+  "name": "wuzzler_backend",
+  "version": "0.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.3.4",
+    "engine.io": "^1.5.1",
+    "eureca.io": "^0.6.4",
+    "express": "^4.12.3",
+    "pg": "^4.3.0",
+    "socket.io": "^1.3.5",
+    "cylon": "^0.21.2",
+    "cylon-firmata": "^0.18.0",
+    "cylon-gpio": "^0.21.0",
+    "cylon-i2c": "^0.18.0"
+  }
+}
