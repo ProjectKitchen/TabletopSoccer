@@ -10,11 +10,13 @@ The purpose of this branch is to apply necessary updates for the TabletopSoccer,
 - removed obsolete dependencies for testing (karma / phantomjs, ..)
 - added "npm-shrinkwrap.json" file to client's and display's folders to set the version of the dev dependency graceful-fs t version 4.2.2 - this was necessary because an incompatibility of other version with the used node/gulp combinations::
 
+   ```
    {  
    "dependencies": {  
    "graceful-fs": {  
    "version": "4.2.2"  
    }}}  
+   ```
 
 
 - added password and superuser priviledges for user "pi" in postgresql - 
@@ -34,15 +36,23 @@ The purpose of this branch is to apply necessary updates for the TabletopSoccer,
 
 ## Changes in the backend
 
-- modify db-connectionstring in backend / db.js to contain password:
+- modified db-connectionstring in backend / db.js to contain password:
 
    `postgres://pi:raspberry@localhost/wuzzler_db`
 
-- add correct eureca.js source uri from localhost in client / index.html: 
+- updated initialistaion of eureca.io server to current syntax
 
-   (line 25): `<script src="http://localhost:3000/eureca.js"></script>`
+## Changes in client / display
 
-- add delay in client.onConnect before eureca.server is used in client / wuzzlerDataService.js: 
+- updated initialistaion of eureca.io client to correct uri in src/app/wuzzlerDataService.js
+
+   (line 7) `var client = new Eureca.Client({ uri: 'localhost:3000', prefix: 'eureca.io', retry: 3 });`
+   
+- added correct eureca.js source uri from localhost in src/index.html: 
+
+   (line 25/line 28): `<script src="http://localhost:3000/eureca.js"></script>`
+
+- added delay in client.onConnect before eureca.server is used in client src/app/wuzzlerDataService.js: 
 
    (line 49): `setTimeout (function() { .... } , 500);`  
    This should be improved as it is a simple workaround 
