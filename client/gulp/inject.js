@@ -13,7 +13,6 @@ module.exports = function(options) {
       '!' + options.tmp + '/serve/app/vendor.css'
     ], { read: false });
 
-
     var injectScripts = gulp.src([
       options.src + '/{app,components}/**/*.js',
       '!' + options.src + '/{app,components}/**/*.spec.js',
@@ -31,7 +30,7 @@ module.exports = function(options) {
       exclude: [/jquery/, /foundation\.js/, /foundation\.css/]
     };
 
-    return gulp.src(options.src + '/*.html')
+    return gulp.src(options.src + '/*.*')
       .pipe($.inject(injectStyles, injectOptions))
       .pipe($.inject(injectScripts, injectOptions))
       .pipe(wiredep(wiredepOptions))

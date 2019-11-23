@@ -1,3 +1,4 @@
+
 var cylon = require("cylon");
 var events = require("events");
 
@@ -71,6 +72,7 @@ var robot = cylon.robot({
         led_blue('on');
     }
 });
+
 
 robot.devices.button1.on('push', function() {
     emitter.emit('btn_red');

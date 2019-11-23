@@ -5,12 +5,14 @@ function log(msg){
 }
 
 exports.init = function(conf){
-    var conString = "postgres://localhost/wuzzler_db";
+    var conString = "postgres://pi:raspberry@localhost/wuzzler_db";
     var client = new pg.Client(conString);
 
     client.connect(function(err) {
         if(err) {
             return console.error('could not connect to postgres', err);
+        } else {
+            console.log ('connected to postgres.');
         }
     });
 
@@ -45,7 +47,7 @@ exports.init = function(conf){
             });
         },
         getUser: function(cookie, callback){
-            log("getUser: " + cookie);
+            log("getUser *** : " + cookie);
             client.query('SELECT * from get_user($1)',[cookie], function(err, res) {
                 if(err) {
                     console.error('error running query', err);
@@ -54,7 +56,7 @@ exports.init = function(conf){
                     console.error('invalid cookie', res);
                     callback('invalid cookie');
                 }else{
-                    log('getUser: '+JSON.stringify(res.rows[0]));
+                    log('getUser**: '+JSON.stringify(res.rows[0]));
                     callback(null, res.rows[0])
                 }
             });

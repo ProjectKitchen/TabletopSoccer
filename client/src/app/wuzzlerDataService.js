@@ -3,13 +3,18 @@
 angular.module('wuzzlerDataService', [])
 
   .factory('wuzzlerData', ['$rootScope', function ($rootScope) {
+    console.log("starting eureca**")
 
-    var client = new Eureca.Client({ uri: "localhost:3000" });
+    var client = new Eureca.Client({ uri: 'localhost:3000', prefix: 'eureca.io', retry: 3 });
+    //var client = new Eureca.Client({ uri: "localhost:3000" });
+    console.log("eureca started")
     //var client = new Eureca.Client({ uri:window.location.origin});
     var server;
 
     client.ready(function (proxy) {
-      console.log("eureca ready")
+      console.log("eureca client ready")
+      proxy.serverEcho('** The Client is now ready **');
+
       console.log(proxy)
       server = proxy;
       exports.server = server;
@@ -39,22 +44,30 @@ angular.module('wuzzlerDataService', [])
 
     client.onConnect(function () {
       console.log("eureca connected")
-      console.log("server"+JSON.stringify(server))
-      server.setSession(
-        localStorage.getItem("sessionId")
-      ).onReady(function (res){
-        console.log(res);
-        if(!res.success){
-          console.log('noSession', res.result)
-          window.location.href='#/login'
-        }else{
-          exports.user=res.result;
-          console.log('Session restored', res.result)
-          exports.user=res.result;
-          window.location.href='#/profile'
-        }
-        $rootScope.$apply();
-      });
+      console.log("client isReady "+JSON.stringify(client.isReady()));
+
+      setTimeout (function() {  // this is a workaround because client is not ready yet,
+                               // thus, server was undefined - TDB: improve!! 
+        
+        server.serverEcho('** client is now connected **');       
+        server.setSession(
+          localStorage.getItem("sessionId")
+        ).onReady(function (res){
+          console.log(res);
+          if(!res.success){
+            console.log('noSession', res.result)
+            window.location.href='#/login'
+          }else{
+            exports.user=res.result;
+            console.log('Session restored', res.result)
+            exports.user=res.result;
+            window.location.href='#/profile'
+          }
+          $rootScope.$apply();
+        });
+      
+      },500);
+      
     });
 
     client.exports.update=function(state){

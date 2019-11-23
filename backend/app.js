@@ -10,10 +10,14 @@ var game = require('./game');
 var wuzzler = require('./wuzzler').init();
 
 var sessions = require('./sessions');
+var Eureca = require('eureca.io');
+var eurecaServer = new Eureca.Server({allow : ['wuzzlerClient.update']});
 
-var EurecaServer = require('eureca.io').EurecaServer;
-var eurecaServer = new EurecaServer({allow : ['wuzzlerClient.update']});
 eurecaServer.attach(http);
+eurecaServer.exports.serverEcho = function(msg) {
+    console.log('Server received : ', msg);
+}
+
 
 sessions.onLogin       = db.login;
 sessions.onRegister    = db.register;
