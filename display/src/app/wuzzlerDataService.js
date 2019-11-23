@@ -4,8 +4,11 @@ angular.module('wuzzlerDataService', [])
 
   .factory('wuzzlerData', ['$rootScope', function ($rootScope) {
 
+    var client = new Eureca.Client({ uri: 'localhost:3000', prefix: 'eureca.io', retry: 3 });
+    console.log("eureca started")
+
     //var client = new Eureca.Client({ uri:"http://raspberrypi.local/" });
-    var client = new Eureca.Client({ uri:window.location.origin});
+    //var client = new Eureca.Client({ uri:window.location.origin});
     var server;
 
     client.ready(function (proxy) {
