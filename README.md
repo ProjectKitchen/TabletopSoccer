@@ -34,7 +34,7 @@ The purpose of this branch is to apply necessary updates for the TabletopSoccer,
    This is done by the script `nat_iptables.sh` in the main folder
 
 
-## Changes in the backend
+### Changes in the backend
 
 - modified db-connectionstring in backend / db.js to contain password:
 
@@ -42,7 +42,7 @@ The purpose of this branch is to apply necessary updates for the TabletopSoccer,
 
 - updated initialistaion of eureca.io server to current syntax
 
-## Changes in client / display
+### Changes in client / display
 
 - updated initialistaion of eureca.io client to correct uri in src/app/wuzzlerDataService.js
 
@@ -59,13 +59,13 @@ The purpose of this branch is to apply necessary updates for the TabletopSoccer,
 
 
 
-### Playing audio from node / js:
+## Playing audio from node / js:
 
 https://www.npmjs.com/package/play-sound
 (tested with .wav files on raspberryPi)
 
 
-### HDMI-CEC to control TV via HDMI 
+## HDMI-CEC to control TV via HDMI 
 
 `sudo apt install cec-utils`
 
@@ -79,11 +79,12 @@ https://www.npmjs.com/package/play-sound
    echo 'tx 4F:82:30:00' | cec-client -s  
    ```
 
-https://www.loxwiki.eu/pages/viewpage.action?pageId=23462202
-https://www.endpoint.com/blog/2012/11/08/using-cec-client-to-control-hdmi-devices
-https://github.com/Pulse-Eight/libcec/issues/202
-https://github.com/Pulse-Eight/libcec/blob/00afa793a90dc82c53ffb58622294cf9e06fe348/src/cec-client/cec-client.cpp#L317
-https://www.whizzy.org/wp-content/uploads/2012/11/cecsimple.sh_.txt
+  See:  
+  https://www.loxwiki.eu/pages/viewpage.action?pageId=23462202  
+  https://www.endpoint.com/blog/2012/11/08/using-cec-client-to-control-hdmi-devices  
+  https://github.com/Pulse-Eight/libcec/issues/202  
+  https://github.com/Pulse-Eight/libcec/blob/00afa793a90dc82c53ffb58622294cf9e06fe348/src/cec-client/cec-client.cpp#L317  
+  https://www.whizzy.org/wp-content/uploads/2012/11/cecsimple.sh_.txt  
 
 
 
